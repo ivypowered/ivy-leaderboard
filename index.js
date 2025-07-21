@@ -5,6 +5,7 @@ const app = express();
 // Constants (update this in your own app)
 const GAME_ADDRESS = "7ESvtfqFrXA2kuzbryDDxVM87Y4bQnAZLR21heza8P8p";
 const IVY_URL = "https://ivypowered.com";
+const PUBLIC_URL = "https://ldrb.ivypowered.com";
 const PORT = 9000;
 
 // Setup
@@ -86,7 +87,7 @@ app.post("/payment-begin", async (req, res) => {
 
     // Where the user will go after the successful payment
     const redirect = encodeURIComponent(
-        `${req.protocol}${req.host}/payment-finish?id=${id}`,
+        `${PUBLIC_URL}/payment-finish?id=${id}`,
     );
     res.redirect(
         `${IVY_URL}/deposit?game=${GAME_ADDRESS}&id=${id}&redirect=${redirect}`,
